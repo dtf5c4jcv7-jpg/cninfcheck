@@ -10,11 +10,12 @@ from selenium.common.exceptions import NoSuchElementException
 
 
 def fetch_data(target_date, keyword):
-    options = webdriver.EdgeOptions()
+    options = webdriver.ChromeOptions()
     options.add_argument('--headless')
-    driver = webdriver.Edge(options=options)
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    driver = webdriver.Chrome(options=options)
     result_set = set()
-
     try:
         driver.get("http://www.cninfo.com.cn/new/commonUrl/pageOfSearch?url=disclosure/list/search")
         wait = WebDriverWait(driver, 15)
