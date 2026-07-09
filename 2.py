@@ -11,6 +11,7 @@ from selenium.common.exceptions import NoSuchElementException
 
 def fetch_data(target_date, keyword):
     options = webdriver.EdgeOptions()
+    # 强制启用无头模式，这对 Web 应用是必须的
     options.add_argument('--headless')
     driver = webdriver.Edge(options=options)
     result_set = set()
